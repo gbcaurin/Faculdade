@@ -1,12 +1,5 @@
-i = 1
-c = 1
-while i < 99:
-  sc = i + (i + 2)
-  sb = c + (c + 1)
-  i += 2
-  c += 1
-s = sc / sb
-print(f"{s:.2f}")
-  
-
-  
+S = 0
+for i in range(1, 51):
+   c = i*2 - 1
+   S += c / i
+print(f"{S:.2f}")

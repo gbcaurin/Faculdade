@@ -1,9 +1,5 @@
-i = 1
-c = 3
-while i < 20:
-  sc = i + (i + 1)
-  sb = c + (c + 2)
-  i += 1
-  c += 2
-s = sc / sb
-print(f"{s:.2f}")
+S = 0
+for i in range(1, 21):
+   c = i*2 + 1
+   S += i / c
+print(f"{S:.2f}")
