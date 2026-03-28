@@ -1,3 +1,4 @@
+#Faça um programa que leia um numero inteiro e mostre o seu sucessor e antecessor.
 def sucante(n):
     return n + 1, n - 1
 

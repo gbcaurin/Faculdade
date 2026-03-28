@@ -1,3 +1,4 @@
+# Faça um programa que leia o custo de um produto e a taxa de imposto, e mostre o custo do produto com imposto.
 def sumImposto (taxaI, custo):
   tx = taxaI / 100
   return custo + (custo * tx)
