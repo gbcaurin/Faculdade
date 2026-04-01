@@ -26,7 +26,7 @@ SELECT * FROM eng;
 ALTER TABLE eng CHANGE cpf_id cpf_eng VARCHAR(13);
 SELECT * FROM eng;
 
-INSERT INTO eng VALUES
+INSERT INTO eng (id_eng, nome_eng, sexo_eng, cpf_eng, fone, salario) VALUES 
 (1,  'RICARDO', 'M', '13789993315', '1932446784', 1563.00),
 (2,  'CLARA',   'F', '12222646585', '1732446784', 10675.75),
 (3,  'RODRIGO', 'M', '16789663215', '2164938324', 3531.97),
