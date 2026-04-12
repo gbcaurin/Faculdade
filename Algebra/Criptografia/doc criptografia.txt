@@ -1,0 +1,186 @@
+Cifra de Hill - Criptografia
+Matriz Chave A (2x2)
+A = [4 3;2 1]
+criptografar: IMAZ LVL 20 GC
+
+Como o texto é impar, deve-se adicionar um X no final para deixar par, entao ficaria: I M A Z L V L G C X
+(O 20 e os espaços serão ignorados)
+
+A = 1
+B = 2
+C = 3
+D = 4
+E = 5 
+F = 6
+G = 7
+H = 8
+I = 9
+J = 10
+K = 11
+L = 12
+M = 13
+N = 14
+O = 15
+P = 16
+Q = 17
+R = 18
+S = 19
+T = 20
+U = 21
+V = 22
+W = 23
+X = 24
+Y = 25
+Z = 0 (Seria o 26 porém contamos como 0)
+
+Transforme o texto em números, entao ficaria:
+I M A Z L V L G C X
+[9 - 13 - 1 - 0 - 12 - 22 - 12 - 7 - 3 - 24]
+texto = [9 13 1 0 12 22 12 7 3 24]
+
+Montar a Matriz P (cada coluna é um par de letras)
+Pares: IM | AZ | LV | LG | CX
+
+Resultado: (antes do pmodulo)
+C = (4 3; 1 2) * (9 1 12 12 3; 13 0 22 7 24)
+
+Linha1:
+p1 = 75
+p2 = 4
+p3 = 114
+p4 = 69
+p5 = 84
+
+Linha2:
+p1 = 35
+p2 = 1
+p3 = 56 
+p4 = 26
+p5 = 51
+
+Calculo da matriz cifrada:
+C = A * P 
+
+Aplicando pmodulo para trazer os valores para Z26:
+C = pmodulo(C, 26)
+
+Exibindo os pares cifrados com seus indices: (apos o pmodulo)
+
+Linha1:
+p1 = 23
+p2 = 4
+p3 = 10
+p4 = 17
+p5 = 6
+
+Linha2:
+p1 = 9
+p2 = 1
+p3 = 4
+p4 = 0
+p5 = 25
+
+Converter indice Z26 para letra:
+tabela = ABCDEFGHIJKLMNOPQRSTUVWXYZ;
+
+Resultado esperado no console:
+c1 = (23, 9) -> WI 
+c2 = ( 4, 1) -> DA
+c3 = (10, 4) -> JD
+c4 = (17, 0) -> QZ
+c5 = (6, 25) -> FY
+
+Texto Original:
+I M A Z L V L G C X 
+Texto Cifrado:
+WIDAJDQZFY
+
+Resumo:
+
+PAR - ORIGINAL - INDICES - CIFRADO - INDICES - CIFRADO
+P1 = 	IM		 (9,13)		-->		 (23,9)		WI
+P2 =	AZ		 (1,0)		-->		 (4,1)		DA
+P3 =	LV		 (12,22)	-->		 (10,4)		JD
+P4 =	LG		 (12,7)		-->		 (17,0)		QZ
+P5 =	CX		 (3,24)		-->		 (6,25)		FY
+
+
+CIFRA DE HILL - DECODIFICACAO
+O que precisa fazer para decodificar?
+
+C = A * P 
+
+Recuperar P: (A elevado a -1)
+P = A(-1) * C 
+
+Encontrar a matriz inversa de A no Z26:
+Calcular determinante A:
+A = (4 3; 1 2)
+det(A) = 4 * 2 - 3 * 1 = 8 - 3 = 5
+
+Encontrar o inverso de det(A) no Z26:
+5 * X = 1 (mod 26)
+
+A = 1 3 5 7 9 11 15 17 19 21 23 25
+A-1 = 1 9 21 15 3 19 7 23 11 5 17 25
+
+Inverso de 5 no Z26: (21)
+
+5 * 21 = 105 = 4 * 26 + 1 = 1 (mod26)
+
+Montar a matriz inversa no Z26:
+Formula geral para 2x2 é:
+
+A-1 = 1/det(A) (d -b; -c a)
+
+Substituindo:
+
+A-1 = 21 * (2 -3; -1 4) = (42 - 63; -21 84)
+
+Aplicar pmodulo(,26) em cada entrada para trazer tudo ao Z26:
+
+VALOR - DIVISAO(P/26) - RESTO	
+ 42		42 = 1*26 + 16	 16
+-63		-63 = -3*26+15	 15
+-21		-21 = -1*26+5	  5
+ 84		84 = 3*26 + 6	  6
+ 
+Entao:
+ 
+A-1 = (16 15; 5 6)
+ 
+Calcular P = A-1 * C 
+C = (23 4 10 17 6; 9 1 4 0 25)
+
+P = (9 1 12 4 0 25; 13 0 22 7 24)
+
+Converter para letras novamente:
+
+Coluna - Indices - Letras
+p1		 (9,13)		I, M
+p2		 (1,0)		A, Z 
+p3		 (12,22)	L, V
+p4		 (12,7)		L, G 
+p5		 (3,24)		C, X
+
+Texto Cifrado: WIDAJDQZFY
+Texto Decodificado: IMAZLVLGCX
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
