@@ -25,7 +25,7 @@ def edit_user(id, name, email, password):
 
 def delete_user(id):
   sql = "DELETE FROM users WHERE id = %s"
-  valor = (id,)
+  valor = (id)
   cursor.execute(sql, valor)
   const.commit()
   print("Usuário deletado com sucesso!")
