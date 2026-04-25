@@ -11,4 +11,4 @@ else:
 
 
 #escrevendo qualquer coisa para ver se meu copilot vai entrosar
-#ele entrosou, mas nao me ajudou, ele so fez um comentario, mas tudo bem, o importante eh que ele entrosou
+#teste de escrita
