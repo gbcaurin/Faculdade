@@ -12,3 +12,4 @@ else:
 
 #escrevendo qualquer coisa para ver se meu copilot vai entrosar
 #teste de escrita
+#teste de entrosa do copilot
