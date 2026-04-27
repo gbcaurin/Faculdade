@@ -9,7 +9,13 @@ if txt == txt[::-1]:
 else:
     print(f'"{x}" nao eh palindroma.')
 
+'''
+ouuu (aprendi no twitter)
 
-#escrevendo qualquer coisa para ver se meu copilot vai entrosar
-#teste de escrita
-#teste de entrosa do copilot
+def palindrome(txt: str) -> bool:
+    return (txt := txt.strip().lower()) == txt[::-1]
+
+print(palindrome("Arara"))
+print(palindrome("Python"))
+
+'''
