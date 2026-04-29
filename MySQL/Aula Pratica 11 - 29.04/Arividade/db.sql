@@ -21,6 +21,6 @@ SELECT nome FROM aluno;
 /* Selecione alunos com ID maior que 1 */
 SELECT * FROM aluno WHERE id > 1;
 /* Selecione alunos e o nome do curso a que pertencem */
-SELECT aluno.nome, curso.nome FROM aluno LEFT JOIN curso ON aluno.curso_id = curso.id;
+SELECT aluno.nome, curso.nome FROM aluno INNER JOIN curso ON aluno.curso_id = curso.id;
 /* Selecione alunos de um curso específico */
 SELECT aluno.nome, curso.nome FROM aluno INNER JOIN curso ON aluno.curso_id = curso.id WHERE curso.nome = "Engenharia de Software";
